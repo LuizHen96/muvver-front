@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>HOME</h1>
+    <h1>Home</h1>
+    <h2>Home Bold</h2>
+    <h3>Home Semi-Bold</h3>
   </div>
 </template>
 
@@ -15,3 +17,19 @@ export default defineComponent({
   },
 });
 </script>
+
+
+<style scoped>
+  h1{
+    font-family: "Titillium";
+    font-size: 20px;
+  }
+  h2{
+    font-family: "Titillium-Bold";
+    font-size: 20px;
+  }
+  h3{
+    font-family: "Titillium-SemiBold";
+    font-size: 20px;
+  }
+</style>
