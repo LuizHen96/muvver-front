@@ -1,8 +1,10 @@
 <template>
   <v-app>
-    <v-main>
-      <router-view/>
-    </v-main>
+    <v-container>
+      <v-main>
+        <router-view/>
+      </v-main>
+    </v-container>
   </v-app>
 </template>
 
@@ -33,5 +35,6 @@ export default {
     src: local("Titilium-SemiBold"),
      url(./assets/fonts/TitilliumWeb-SemiBold.ttf) format("truetype");
   }
+  
 </style>
 

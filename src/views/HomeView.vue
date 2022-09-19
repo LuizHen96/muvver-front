@@ -1,8 +1,11 @@
 <template>
   <div class="home">
-    <div class="toolbar">
-      <v-img src="@/assets/images/logo.svg" class="logo" alt="Logo da Muvver"/>
-    </div>
+    <v-row>
+      <v-col class="toolbar" cols="2">
+        <v-img src="@/assets/images/logo.svg" class="logo" alt="Logo da Muvver"/>
+      </v-col>
+    </v-row>
+
     <div class="title">
       <h2>Facilitando seus <b>envios.</b></h2>
       <h3>Entregue ou envie</h3>
@@ -91,10 +94,6 @@ export default defineComponent({
     width: 20%;
   }
 
-  .toolbar{
-    height: 10%;
-    width: 80%;
-  }
 
   h2{
     color: #222222;

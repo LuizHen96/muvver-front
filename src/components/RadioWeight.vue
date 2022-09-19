@@ -1,0 +1,72 @@
+<template>
+  <div>
+    <h3>Peso</h3>
+    <v-radio-group v-model="radioWeight">
+      <v-container>
+        <v-row>
+          <v-col class="radio-option">
+            <v-img src="@/assets/images/weight/ic_balance_1.svg" class="icon" alt="Icone de uma balança"/>
+            <span>Até 1kg</span>
+            <v-spacer/>
+            <v-radio value="1kg"/>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col class="radio-option">
+            <v-img src="@/assets/images/weight/ic_balance_2.svg" class="icon" alt="Icone de uma balança"/>
+            <span>Até 5kg</span>
+            <v-spacer/>
+            <v-radio value="5kg"/>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col class="radio-option">
+            <v-img src="@/assets/images/weight/ic_balance_3.svg" class="icon" alt="Icone de uma balança"/>
+            <span>Até 10kg</span>
+            <v-spacer/>
+            <v-radio value="10kg"/>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col class="radio-option">
+            <v-img src="@/assets/images/weight/ic_balance_4.svg" class="icon" alt="Icone de uma balança"/>
+            <span>Até 20kg</span>
+            <v-spacer/>
+            <v-radio value="20kg"/>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col class="radio-option">
+            <v-img src="@/assets/images/weight/ic_balance_5.svg" class="icon" alt="Icone de uma balança"/>
+            <span>Outro</span>
+            <v-spacer/>
+            <v-radio value="other"/>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-radio-group>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "RadioWeight",
+  data() {
+    return {
+      radioWeight: "weight",
+    }
+  },
+}
+</script>
+
+
+<style scoped>
+  .radio-option{
+    display: flex;
+    justify-content: space-between;
+  }
+  .icon{
+    height: 50px;
+    width: 50px;
+  }
+</style>
