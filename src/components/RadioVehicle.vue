@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="main">   
     <h3>Transporte</h3>
     <v-radio-group v-model="radioTransport">
       <v-container>

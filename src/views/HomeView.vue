@@ -49,12 +49,7 @@ export default defineComponent({
 
   components: {
 
-  },
-
-  mounted() {
-    //console.log(this.$vuetify.display.name)
-  }
-  
+  },  
 });
 </script>
 

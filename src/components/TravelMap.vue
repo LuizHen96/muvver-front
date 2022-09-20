@@ -10,10 +10,6 @@ export default {
   mounted() {
     const directionsService = new window.google.maps.DirectionsService();
     const directionsRenderer = new window.google.maps.DirectionsRenderer();
-    // waypts.push ( {
-    //   location: {lat: -19.334318347264098, lng: -54.53577891390656 },
-    //   stopover: true,
-    // })
     
     const map = new window.google.maps.Map(document.getElementById("map"), {
         zoom: 10,

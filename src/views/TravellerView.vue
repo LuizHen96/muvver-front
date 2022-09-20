@@ -1,5 +1,6 @@
 <template>
   <div class="main">
+
     <div>
     <v-toolbar></v-toolbar>
     <h2>{{label[state-1]}}</h2>
@@ -10,7 +11,6 @@
     <RadioWeight v-on:onNextPage="state++" v-if="state==4"/>
     <DeliveryPrice v-on:onNextPage="createTravel()" v-if="state==5"/>
 
-    
   </div>
 </template>
 
@@ -20,6 +20,8 @@ import TripPath from '@/components/TripPath.vue';
 import RadioVolume from '@/components/RadioVolume.vue';
 import RadioWeight from '@/components/RadioWeight.vue';
 import DeliveryPrice from '@/components/DeliveryPrice.vue';
+import { mapActions } from 'vuex';
+
 export default {
     name: "TravellerView",
     data() {
@@ -35,7 +37,9 @@ export default {
         };
     },
     methods: {
+      ...mapActions(['addTravel']),
       createTravel(){
+        this.addTravel();
         this.$router.push({name: 'criado'})
       }
     },
