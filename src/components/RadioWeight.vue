@@ -45,6 +45,8 @@
         </v-row>
       </v-container>
     </v-radio-group>
+    <v-btn flat @click='nextPage("")'>Pular etapa</v-btn>
+    <v-btn color="success" :disabled='radioWeight==""' @click="nextPage(radioWeight)">Avançar</v-btn>
   </div>
 </template>
 
@@ -53,7 +55,13 @@ export default {
   name: "RadioWeight",
   data() {
     return {
-      radioWeight: "weight",
+      radioWeight: ""
+    }
+  },
+  methods: {
+    nextPage(radioWeight){
+      this.$store.state.travels.travel.transport_weight = radioWeight;
+      this.$emit('onNextPage')
     }
   },
 }

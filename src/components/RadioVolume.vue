@@ -59,6 +59,8 @@
         </v-row>
       </v-container>
     </v-radio-group>
+    <v-btn flat @click='nextPage("")'>Pular etapa</v-btn>
+    <v-btn color="success" :disabled='radioVolume==""' @click="nextPage(radioVolume)">Avançar</v-btn>
   </div>
 </template>
 
@@ -67,7 +69,13 @@ export default {
   name: "RadioVolume",
   data() {
     return {
-      radioVolume: "",
+      radioVolume: ""
+    }
+  },
+  methods: {
+    nextPage(radioVolume){
+      this.$store.state.travels.travel.transport_volume = radioVolume;
+      this.$emit('onNextPage')
     }
   },
 }

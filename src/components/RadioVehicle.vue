@@ -77,6 +77,7 @@
         </v-row>
       </v-container>
     </v-radio-group>
+    <v-btn color="success" @click="nextPage()">Avançar</v-btn>
   </div>
 </template>
 
@@ -86,6 +87,12 @@ export default {
   data() {
     return {
       radioTransport: "car",
+    }
+  },
+  methods: {
+    nextPage(){
+      this.$store.state.travels.travel.vehicle = this.radioTransport;
+      this.$emit('onNextPage')
     }
   },
 

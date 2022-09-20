@@ -4,13 +4,12 @@
     <v-toolbar></v-toolbar>
     <h2>{{label[state-1]}}</h2>
     </div>
-    <RadioVehicle v-if="state == 1"/>
-    <TripPath v-if="state== 2"/>
-    <RadioVolume v-if="state==3"/>
-    <RadioWeight v-if="state==4"/>
-    <DeliveryPrice v-if="state==5"/>
-    <v-btn flat v-if="state== 3 || state == 4" @click="state++">Pular etapa</v-btn>
-    <v-btn color="success" @click="nextPage()">Avançar</v-btn>
+    <RadioVehicle v-on:onNextPage="state++" v-if="state == 1"/>
+    <TripPath v-on:onNextPage="state++" v-if="state== 2"/>
+    <RadioVolume v-on:onNextPage="state++" v-if="state==3"/>
+    <RadioWeight v-on:onNextPage="state++" v-if="state==4"/>
+    <DeliveryPrice v-on:onNextPage="createTravel()" v-if="state==5"/>
+
     
   </div>
 </template>
@@ -36,11 +35,8 @@ export default {
         };
     },
     methods: {
-      nextPage(){
-        this.state++
-        if(this.state > this.label.length){
-          this.$router.push({name: 'criado'})
-        }
+      createTravel(){
+        this.$router.push({name: 'criado'})
       }
     },
     components: { RadioVehicle, TripPath, RadioVolume, RadioWeight, DeliveryPrice }

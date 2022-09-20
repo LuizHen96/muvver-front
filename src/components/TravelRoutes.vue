@@ -4,33 +4,33 @@
     <v-container>
       <v-row>
         <v-col>
-          <Datepicker v-if="showPickerDeparture" :inline="true" v-model="departureDate" modelType="dd/MM/yyyy" format="dd/MM/yyyy" :enableTimePicker="false" />
-          <v-text-field v-model="departureDate" @focus="showPickerDeparture=true" @blur="showPickerDeparture=false" label="Data de Partida" variant="outlined" />
+          <Datepicker v-if="showPickerDeparture" :inline="true" v-model="$store.state.travels.travel.departure_date" modelType="dd/MM/yyyy" format="dd/MM/yyyy" :enableTimePicker="false" />
+          <v-text-field v-model="$store.state.travels.travel.departure_date" @focus="showPickerDeparture=true" @blur="showPickerDeparture=false" label="Data de Partida" variant="outlined" />
         </v-col>
         <v-col>
-          <Datepicker v-if="showPickerArrive" :inline="true" v-model="arriveDate" modelType="dd/MM/yyyy" format="dd/MM/yyyy" :enableTimePicker="false" />
-          <v-text-field v-model="arriveDate" @focus="showPickerArrive=true" @blur="showPickerArrive=false" label="Data de Chegada" variant="outlined" />
+          <Datepicker v-if="showPickerArrive" :inline="true" v-model="$store.state.travels.travel.arrive_date" modelType="dd/MM/yyyy" format="dd/MM/yyyy" :enableTimePicker="false" />
+          <v-text-field v-model="$store.state.travels.travel.arrive_date" @focus="showPickerArrive=true" @blur="showPickerArrive=false" label="Data de Chegada" variant="outlined" />
         </v-col>
       </v-row>
       <v-row>
         <v-col>
-          <v-text-field id="autoCompleteOrigin" v-model="origin" label="Cidade de Origem" variant="outlined" />
+          <v-text-field id="origin" v-model="$store.state.travels.travel.origin" label="Cidade de Origem" variant="outlined"/>
         </v-col>
       </v-row>
       <v-row>
         <v-col>
-          <v-text-field id="autoCompleteDestination" v-model="destination" label="Cidade de Destino" variant="outlined" />
+          <v-text-field id="destination" v-model="$store.state.travels.travel.destination" label="Cidade de Destino" variant="outlined"/>
         </v-col>
       </v-row>
-      <v-row v-for="(waypoint, key) in waypoints" :key="key">
+      <v-row v-for="(waypoint, key) in $store.state.travels.travel.waypoints" :key="key">
         <v-col>
           <v-icon>mdi-map-marker</v-icon>
         </v-col>
         <v-col>
-          {{waypoint}}
+          {{waypoint.location}}
         </v-col>
         <v-col>
-          <v-btn flat icon="mdi-close"/>
+          <v-btn flat icon="mdi-close" @click="$store.state.travels.travel.waypoints.pop(waypoint)"/>
         </v-col>
       </v-row>
       <TravelWaypoint/>
@@ -48,25 +48,32 @@ export default {
     return {
       departureDate: "",
       arriveDate: "",
-      origin: "",
-      destination: "",
       showPickerDeparture: false,
       showPickerArrive: false,
-      waypoints: ["Nova Alvorada do Sul", "Sidrolândia"],
       userLatitude: "",
-      userLongetude: ""
+      userLongetude: "",
     }
   },
   mounted() {
+    const options = {
+      componentRestrictions: {country: "br"},
+      types: ['(cities)']
+    }
 
-    new window.google.maps.places.Autocomplete(document.getElementById("autoCompleteOrigin"), {
-      componentRestrictions: {country: "br"},
-      types: ['(cities)']
+
+    const originAutocomplete = new window.google.maps.places.Autocomplete(document.getElementById("origin"), options);
+    originAutocomplete.addListener("place_changed", () =>{
+      let address_components = originAutocomplete.getPlace().address_components;
+      this.$store.state.travels.travel.origin = address_components[0].long_name + ", " + address_components.find(x => x.types[0] == "administrative_area_level_1").short_name
     });
-    new window.google.maps.places.Autocomplete(document.getElementById("autoCompleteDestination"), {
-      componentRestrictions: {country: "br"},
-      types: ['(cities)']
+
+    const destinationAutocomplete = new window.google.maps.places.Autocomplete(document.getElementById("destination"), options);
+    destinationAutocomplete.addListener("place_changed", () =>{
+      let address_components = destinationAutocomplete.getPlace().address_components;
+      this.$store.state.travels.travel.destination = address_components[0].long_name + ", " + address_components.find(x => x.types[0] == "administrative_area_level_1").short_name
     });
+
+    
 
   }, 
   components:{

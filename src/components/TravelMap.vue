@@ -10,11 +10,10 @@ export default {
   mounted() {
     const directionsService = new window.google.maps.DirectionsService();
     const directionsRenderer = new window.google.maps.DirectionsRenderer();
-    const waypts = [];
-    waypts.push ( {
-      location: {lat: -19.334318347264098, lng: -54.53577891390656 },
-      stopover: true,
-    })
+    // waypts.push ( {
+    //   location: {lat: -19.334318347264098, lng: -54.53577891390656 },
+    //   stopover: true,
+    // })
     
     const map = new window.google.maps.Map(document.getElementById("map"), {
         zoom: 10,
@@ -23,9 +22,9 @@ export default {
     })
     directionsRenderer.setMap(map);
     directionsService.route({
-      origin: { lat: -20.9861733, lng: -54.5066705  },
-      destination: { lat: -20.4689739032, lng: -54.6347453  },
-      waypoints: waypts,
+      origin:  this.$store.state.travels.travel.origin,
+      destination: this.$store.state.travels.travel.destination,
+      waypoints: this.$store.state.travels.travel.waypoints,
       travelMode: window.google.maps.TravelMode.DRIVING
 
     })

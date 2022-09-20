@@ -4,6 +4,7 @@
     <v-btn @click="state=2"> Mapa </v-btn>
     <TravelRoutes v-if="state==1"/>
     <TravelMap v-if="state==2"/>
+    <v-btn color="success" @click="nextPage()">Avançar</v-btn>
   </div>
 </template>
 
@@ -15,6 +16,11 @@ export default {
     data() {
       return {
         state: 1
+      }
+    },
+    methods: {
+      nextPage(){
+        this.$emit('onNextPage')
       }
     },
     components: { TravelRoutes, TravelMap }
