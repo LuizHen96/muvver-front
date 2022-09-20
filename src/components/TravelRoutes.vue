@@ -30,7 +30,7 @@
           {{waypoint.location}}
         </v-col>
         <v-col>
-          <v-btn flat icon="mdi-close" @click="$store.state.travels.travel.waypoints.pop(waypoint)"/>
+          <v-btn flat icon="mdi-close" @click="removeWaypoint(waypoint)"/>
         </v-col>
       </v-row>
       <TravelWaypoint/>
@@ -76,6 +76,11 @@ export default {
     
 
   }, 
+  methods: {
+    removeWaypoint(waypoint){
+      this.$store.state.travels.travel.waypoints.pop(waypoint)
+    }
+  },
   components:{
     Datepicker,
     TravelWaypoint

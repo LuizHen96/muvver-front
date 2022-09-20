@@ -23,7 +23,7 @@
         </v-row>
       </v-container>
     </div>
-    <div class="btn traveler" @click="this.$router.push({name: 'viajante'})" >
+    <div class="btn traveler" @click="goTravelPage" >
       <v-container>
         <v-row>
           <v-col>
@@ -46,10 +46,12 @@
 import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'HomeView',
-
-  components: {
-
-  },  
+  methods: {
+    goTravelPage(){
+      this.$router.push({name: 'viajante'})
+    }
+  },
+ 
 });
 </script>
 
