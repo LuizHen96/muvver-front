@@ -35,6 +35,8 @@ export default {
     src: local("Titilium-SemiBold"),
      url(./assets/fonts/TitilliumWeb-SemiBold.ttf) format("truetype");
   }
-  
+  .pac-container {
+    z-index: 20000 !important;
+  }
 </style>
 

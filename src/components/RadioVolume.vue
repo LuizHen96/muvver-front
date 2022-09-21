@@ -60,7 +60,7 @@
       </v-container>
     </v-radio-group>
     <v-btn flat @click='nextPage("")'>Pular etapa</v-btn>
-    <v-btn color="success" :disabled='radioVolume==""' @click="nextPage(radioVolume)">Avançar</v-btn>
+    <v-btn color="success" :disabled='!isSelected' @click="nextPage(radioVolume)">Avançar</v-btn>
   </div>
 </template>
 
@@ -78,6 +78,11 @@ export default {
       this.$emit('onNextPage')
     }
   },
+  computed: {
+    isSelected(){
+      return this.radioVolume != "" ? true : false
+    }
+  }
 }
 </script>
 
