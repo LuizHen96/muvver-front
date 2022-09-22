@@ -64,12 +64,12 @@
         </v-row>
         <v-row>
           <v-col>
-            <v-btn flat @click='nextPage( " " )'>Pular etapa</v-btn>
+            <v-btn flat @click='nextPage(" ")'>Pular etapa</v-btn>
           </v-col>
         </v-row>
         <v-row>
           <v-col>
-            <v-btn color="success" :disabled='!isSelected' @click="nextPage( radioWeight )">Avançar</v-btn>
+            <v-btn color="success" :disabled='!isSelected' @click="nextPage(radioWeight)">Avançar</v-btn>
           </v-col>
         </v-row>
       </v-container> 
@@ -88,11 +88,11 @@ export default {
   methods: {
     nextPage( radioWeight ){
       this.$store.state.travels.travel.transport_weight = radioWeight;
-      this.$emit( 'onNextPage' )
+      this.$emit('onNextPage')
     }
   },
   computed: {
-    isSelected( ){
+    isSelected(){
       return this.radioWeight != "" ? true : false
     }
   }

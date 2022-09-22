@@ -88,12 +88,12 @@
       </v-radio-group>
       <v-row>
         <v-col>
-          <v-btn flat @click='nextPage( "" )'>Pular etapa</v-btn>
+          <v-btn flat @click='nextPage("")'>Pular etapa</v-btn>
         </v-col>
       </v-row>
       <v-row>
         <v-col>
-          <v-btn color="success" :disabled='!isSelected' @click="nextPage( radioVolume )">Avançar</v-btn>
+          <v-btn color="success" :disabled='!isSelected' @click="nextPage(radioVolume)">Avançar</v-btn>
         </v-col>
       </v-row>     
     </v-container>
@@ -109,13 +109,13 @@ export default {
     }
   },
   methods: {
-    nextPage( radioVolume ){
+    nextPage( radioVolume ) {
       this.$store.state.travels.travel.transport_volume = radioVolume;
       this.$emit( 'onNextPage' )
     }
   },
   computed: {
-    isSelected( ){
+    isSelected() {
       return this.radioVolume != "" ? true : false
     }
   }

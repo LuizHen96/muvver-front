@@ -49,8 +49,8 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'HomeView',
   methods: {
-    goTravelPage( ){
-      this.$router.push( { name: 'viajante' } )
+    goTravelPage() {
+      this.$router.push({ name: 'viajante' })
     }
   },
 });
@@ -62,14 +62,12 @@ export default defineComponent({
   .home{
     display: block;
   }
-
   .btn{
     background: transparent linear-gradient(249deg, #353740 0%, #222222 100%) 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #22222229;
     border-radius: 3px;
     padding: 20px;
   }
-
   .btn h2{
     color: #ffffff;
     font-family: "Titillium-SemiBold";
@@ -80,7 +78,6 @@ export default defineComponent({
     font-family: "Titillium";
     font-size: 14px;
   }
-
   h2{
     color: #222222;
     font-size: 20px;

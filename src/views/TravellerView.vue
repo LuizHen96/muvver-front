@@ -3,7 +3,7 @@
 
     <div class="header">
       <v-toolbar color="transparent">
-        <v-btn icon v-if="state == 1" @click="backHome( )">
+        <v-btn icon v-if="state == 1" @click="backHome()">
           <v-icon>mdi-close</v-icon>
         </v-btn>
         <v-btn icon v-if="state != 1" @click="state--">
@@ -22,7 +22,7 @@
     <TripPath v-on:onNextPage="state++" v-show="state== 2"/>
     <RadioVolume v-on:onNextPage="state++" v-show="state==3"/>
     <RadioWeight v-on:onNextPage="state++" v-show="state==4"/>
-    <DeliveryPrice v-on:onNextPage="createTravel( )" v-show="state==5"/>
+    <DeliveryPrice v-on:onNextPage="createTravel()" v-show="state==5"/>
   </div>
 </template>
 
@@ -50,12 +50,12 @@ export default {
     },
     methods: {
       ...mapActions( [ 'addTravel' ] ),
-      createTravel( ){
-        this.addTravel( );
-        this.$router.push( { name: 'criado' } )
+      createTravel() {
+        this.addTravel();
+        this.$router.push({ name: 'criado' })
       },
-      backHome( ){
-        this.$router.push( { name: 'home' } )
+      backHome(){
+        this.$router.push({ name: 'home' })
       }
     },
     components: { RadioVehicle, TripPath, RadioVolume, RadioWeight, DeliveryPrice }

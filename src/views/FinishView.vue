@@ -12,8 +12,8 @@
 export default {
   name: "FinishView",
   methods: {
-    goViewVolumes( ){
-      this.$router.push( { name: 'volumes' } )
+    goViewVolumes(){
+      this.$router.push({ name: 'volumes' })
     }
   },
 }
