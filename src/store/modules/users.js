@@ -1,5 +1,5 @@
 import axios from 'axios';
-const api_url = "https://muvver-rails.herokuapp.com/api/v1/users/"
+const api_url = "http://localhost:3000/api/v1/users/"
 
 const state = {
   users: []
