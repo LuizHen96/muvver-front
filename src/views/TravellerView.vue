@@ -12,7 +12,7 @@
         <v-spacer/>
         <v-toolbar-title class="title">Viajante</v-toolbar-title>
         <v-spacer/>
-        <v-btn flat v-if="state != 1">
+        <v-btn @click="backHome()" flat v-if="state != 1">
           Cancelar
         </v-btn>
       </v-toolbar>
