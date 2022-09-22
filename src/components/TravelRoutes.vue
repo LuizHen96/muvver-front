@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <v-container>
       <v-row>
         <v-col>
@@ -39,8 +39,8 @@
       </v-row>
     <v-dialog v-model="dialog" fullscreen>
       <template v-slot:activator="{ props }">
-        <v-btn hide-details v-bind="props" block>
-          <v-row>
+        <v-btn hide-details v-bind="props" block flat>
+          <v-row align="center">
             <v-col> 
               <v-img src="@/assets/images/add_button.svg" class="icon" alt="Icone de uma adição" width="50px"/>
             </v-col>
@@ -89,7 +89,6 @@ export default {
       let address_components = destinationAutocomplete.getPlace().address_components;
       this.$store.state.travels.travel.destination = address_components[0].long_name + ", " + address_components.find(x => x.types[0] == "administrative_area_level_1").short_name
     });   
-
   }, 
   computed: {
     dateRules() {
@@ -121,3 +120,9 @@ export default {
 }
 }
 </script>
+
+<style scoped>
+  .main{
+    font-size: 1.3vw;
+  }
+</style>

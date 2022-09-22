@@ -10,13 +10,15 @@
           <v-icon>mdi-arrow-left</v-icon>
         </v-btn>
         <v-spacer/>
-        <v-toolbar-title>Viajante</v-toolbar-title>
+        <v-toolbar-title class="title">Viajante</v-toolbar-title>
         <v-spacer/>
         <v-btn flat v-if="state != 1">
           Cancelar
         </v-btn>
       </v-toolbar>
-      <h2>{{label[ state-1 ]}}</h2>
+      <div class="label">
+        <h2>{{label[ state-1 ]}}</h2>
+      </div>
     </div>
     <RadioVehicle v-on:onNextPage="state++" v-show="state == 1"/>
     <TripPath v-on:onNextPage="state++" v-show="state== 2"/>
@@ -67,11 +69,19 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin: 50px;
   }
   .header{
     background: transparent linear-gradient(249deg, #353740 0%, #222222 100%) 0% 0% no-repeat padding-box;
     color: #ffffff;
     font-family: "Titillium";
+  }
+  .label{
+    margin: 20px;
+    font-size: 1.2vw;
+    text-align: center;
+  }
+  .title{
+    font-size: 30px;
+    text-align: center;
   }
 </style>

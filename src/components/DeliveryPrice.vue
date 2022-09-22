@@ -38,7 +38,7 @@
       </v-row>
       <v-row>
         <v-col>
-          <v-btn color="success" @click="nextPage()">Avançar</v-btn>
+          <v-btn color="success" @click="nextPage()" block>Avançar</v-btn>
         </v-col>
       </v-row>
     </v-container>

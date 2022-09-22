@@ -10,7 +10,7 @@
           <v-col>
             <span>Carro</span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="Carro"/>
           </v-col>
         </v-row>
@@ -21,7 +21,7 @@
           <v-col>
             <span>Avião</span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="Avião"/>
           </v-col>
         </v-row>
@@ -32,7 +32,7 @@
           <v-col>
             <span>Caminhão</span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="Caminhão"/>
           </v-col>
         </v-row>
@@ -43,7 +43,7 @@
           <v-col>
             <span>Van</span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="Van"/>
           </v-col>
         </v-row>
@@ -54,7 +54,7 @@
           <v-col>
             <span>Moto</span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="Moto"/>
           </v-col>
         </v-row>
@@ -65,7 +65,7 @@
           <v-col>
             <span>Bicicleta</span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="Bicicleta"/>
           </v-col>
         </v-row>
@@ -76,7 +76,7 @@
           <v-col>
             <span>Trem</span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="Trem"/>
           </v-col>
         </v-row>
@@ -87,7 +87,7 @@
           <v-col>
             <span>Ônibus</span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="Ônibus"/>
           </v-col>
         </v-row>
@@ -98,12 +98,16 @@
           <v-col>
             <span>Embarcação</span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="Barco"/>
           </v-col>
         </v-row>
     </v-radio-group>
-    <v-btn color="success" @click="nextPage()">Avançar</v-btn>
+    <v-row>
+      <v-col>
+        <v-btn block color="success" @click="nextPage()">Avançar</v-btn>
+      </v-col>
+    </v-row>
     </v-container>
   </div>
 </template>
@@ -126,8 +130,14 @@ export default {
 </script>
 
 <style scoped>
+  .main h3{
+    font-size: 1.8vw;
+  }
+  .main span{
+    font-size: 1.4vw;
+  }
   .icon{
-    height: 50px;
-    width: 50px;
+    height: 3.5vw;
+    width: 3.5vw;
   }
 </style>

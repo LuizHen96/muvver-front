@@ -14,7 +14,7 @@
           <v-col>
             <span>Até 1kg</span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="1kg"/>
           </v-col>
         </v-row>
@@ -25,7 +25,7 @@
           <v-col>
             <span>Até 5kg</span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="5kg"/>
           </v-col>
         </v-row>
@@ -36,7 +36,7 @@
           <v-col>
             <span>Até 10kg</span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="10kg"/>
           </v-col>
         </v-row>
@@ -47,7 +47,7 @@
           <v-col>
             <span>Até 20kg</span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="20kg"/>
           </v-col>
         </v-row>
@@ -58,18 +58,18 @@
           <v-col>
             <span>Outro</span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="Outro"/>
           </v-col>
         </v-row>
         <v-row>
           <v-col>
-            <v-btn flat @click='nextPage(" ")'>Pular etapa</v-btn>
+            <v-btn flat @click='nextPage(" ")' block>Pular etapa</v-btn>
           </v-col>
         </v-row>
         <v-row>
           <v-col>
-            <v-btn color="success" :disabled='!isSelected' @click="nextPage(radioWeight)">Avançar</v-btn>
+            <v-btn color="success" :disabled='!isSelected' @click="nextPage(radioWeight)" block>Avançar</v-btn>
           </v-col>
         </v-row>
       </v-container> 
@@ -101,12 +101,14 @@ export default {
 
 
 <style scoped>
-  .radio-option{
-    display: flex;
-    justify-content: space-between;
+  .main h3{
+    font-size: 1.8vw;
+  }
+  .main span{
+    font-size: 1.4vw;
   }
   .icon{
-    height: 50px;
-    width: 50px;
+    height: 3.5vw;
+    width: 3.5vw;
   }
 </style>

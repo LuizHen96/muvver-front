@@ -16,7 +16,7 @@
             <br>
             <span> 00 x 00 cm </span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="Envelope"/>
           </v-col>
         </v-row>
@@ -29,7 +29,7 @@
             <br>
             <span> 00 x 00 cm </span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="Livro"/>
           </v-col>
         </v-row>
@@ -42,7 +42,7 @@
             <br>
             <span> 00 x 00 cm </span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="Caixa de Sapato"/>
           </v-col>
         </v-row>
@@ -55,7 +55,7 @@
             <br>
             <span> 00 x 00 cm </span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="Mochila"/>
           </v-col>
         </v-row>
@@ -68,7 +68,7 @@
             <br>
             <span> 00 x 00 cm </span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="Mala"/>
           </v-col>
         </v-row>
@@ -81,19 +81,19 @@
             <br>
             <span> 00 x 00 cm </span>
           </v-col>
-          <v-col>
+          <v-col cols="1">
             <v-radio value="Caixa Grande"/>
           </v-col>
         </v-row>
       </v-radio-group>
       <v-row>
         <v-col>
-          <v-btn flat @click='nextPage("")'>Pular etapa</v-btn>
+          <v-btn flat @click='nextPage("")' block>Pular etapa</v-btn>
         </v-col>
       </v-row>
       <v-row>
         <v-col>
-          <v-btn color="success" :disabled='!isSelected' @click="nextPage(radioVolume)">Avançar</v-btn>
+          <v-btn color="success" :disabled='!isSelected' @click="nextPage(radioVolume)" block>Avançar</v-btn>
         </v-col>
       </v-row>     
     </v-container>
@@ -123,12 +123,14 @@ export default {
 </script>
 
 <style scoped>
-  .radio-option{
-    display: flex;
-    justify-content: space-between;
+  .main h3{
+    font-size: 1.8vw;
+  }
+  .main span{
+    font-size: 1.4vw;
   }
   .icon{
-    height: 50px;
-    width: 50px;
+    height: 3.5vw;
+    width: 3.5vw;
   }
 </style>

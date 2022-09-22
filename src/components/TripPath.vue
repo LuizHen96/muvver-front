@@ -1,9 +1,9 @@
 <template>
   <div>
     <v-container>
-      <v-row>
+      <v-row class="toolbar">
         <v-col cols="6">
-          <v-btn @click="state=1" class="btn" flat block> Rotas </v-btn>
+          <v-btn @click="state=1" block flat> Rotas </v-btn>
         </v-col>
         <v-col cols="6">
           <v-btn @click="state=2" block flat> Mapa </v-btn>
@@ -17,7 +17,7 @@
       </v-row>
       <v-row>
         <v-col>
-          <v-btn :disabled="!validInput" color="success" @click="nextPage()">Avançar</v-btn>
+          <v-btn :disabled="!validInput" color="success" @click="nextPage()" block>Avançar</v-btn>
         </v-col>
       </v-row>
     </v-container>
@@ -56,3 +56,7 @@ export default {
     components: { TravelRoutes, TravelMap }
 }
 </script>
+
+<style scoped>
+
+</style>
