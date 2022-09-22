@@ -49,17 +49,16 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'HomeView',
   methods: {
-    goTravelPage(){
-      this.$router.push({name: 'viajante'})
+    goTravelPage( ){
+      this.$router.push( { name: 'viajante' } )
     }
   },
- 
 });
 </script>
 
 
 <style scoped>
-  /* ARRUMAR CSS */
+  /* TODO: ARRUMAR CSS*/
   .home{
     display: block;
   }

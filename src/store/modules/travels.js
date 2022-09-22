@@ -13,7 +13,7 @@ const state = {
     transport_weight: "",
     minimum_price: 0,
   },
-  travels: []
+  travels: [ ]
 
 };
 
@@ -27,7 +27,7 @@ const actions = {
     const response = await axios.get(api_url);
     commit('setTravels', response.data);
   },
-  async addTravel(){
+  async addTravel( ){
     const response = await axios.post(api_url, state.travel);
     console.log(response.data)
   }

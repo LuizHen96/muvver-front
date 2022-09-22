@@ -26,7 +26,7 @@
           <v-text-field id="destination" v-model="$store.state.travels.travel.destination" label="Cidade de Destino" :rules="cityRules" variant="outlined"/>
         </v-col>
       </v-row>
-      <v-row v-for="(waypoint, key) in $store.state.travels.travel.waypoints" :key="key">
+      <v-row v-for="( waypoint, key ) in $store.state.travels.travel.waypoints" :key="key">
         <v-col>
           <v-icon>mdi-map-marker</v-icon>
         </v-col>
@@ -34,7 +34,7 @@
           {{waypoint.location}}
         </v-col>
         <v-col>
-          <v-btn flat icon="mdi-close" @click="removeWaypoint(waypoint)"/>
+          <v-btn flat icon="mdi-close" @click="removeWaypoint( waypoint )"/>
         </v-col>
       </v-row>
     <v-dialog v-model="dialog">
@@ -51,7 +51,7 @@
           </v-row>
       </v-btn>
       </template>
-      <TravelWaypoint v-on:onCloseDialog="closeDialog()"/>
+      <TravelWaypoint v-on:onCloseDialog="closeDialog( )"/>
     </v-dialog>
     </v-container>
   </div>
@@ -64,7 +64,7 @@ import TravelWaypoint from './TravelWaypoint.vue';
 import moment from 'moment';
 export default {
   name: "TravelRoutes",
-  data() {
+  data( ) {
     return {
       showPickerDeparture: false,
       showPickerArrive: false,
@@ -74,18 +74,18 @@ export default {
       cityRules: [ v => !!v || 'É obrigatório uma cidade'],
     }
   },
-  mounted() {
+  mounted( ) {
     const options = {
-      componentRestrictions: {country: "br"},
-      types: ['(cities)']
+      componentRestrictions: { country: "br" },
+      types: [ '(cities)' ]
     }
     const originAutocomplete = new window.google.maps.places.Autocomplete(document.getElementById("origin"), options);
-    originAutocomplete.addListener("place_changed", () =>{
+    originAutocomplete.addListener( "place_changed", ( ) =>{
       let address_components = originAutocomplete.getPlace().address_components;
       this.$store.state.travels.travel.origin = address_components[0].long_name + ", " + address_components.find(x => x.types[0] == "administrative_area_level_1").short_name
     });
     const destinationAutocomplete = new window.google.maps.places.Autocomplete(document.getElementById("destination"), options);
-    destinationAutocomplete.addListener("place_changed", () =>{
+    destinationAutocomplete.addListener( "place_changed", ( ) =>{
       let address_components = destinationAutocomplete.getPlace().address_components;
       this.$store.state.travels.travel.destination = address_components[0].long_name + ", " + address_components.find(x => x.types[0] == "administrative_area_level_1").short_name
     });   
@@ -94,24 +94,24 @@ export default {
   computed: {
     dateRules(){
       let date = moment(this.$store.state.travels.travel.departure_date, "DD/MM/YYYY")
-      let now = moment((new Date()).toLocaleDateString() , "DD/MM/YYYY")
+      let now = moment( ( new Date( )).toLocaleDateString() , "DD/MM/YYYY")
       return [
         !now.isAfter(date)|| "A data de partida não pode ser antes de hoje"
       ]
     },
-    dateRulesArrive(){
+    dateRulesArrive( ){
       let departureDate = moment(this.$store.state.travels.travel.departure_date, "DD/MM/YYYY")
       let arriveDate = moment(this.$store.state.travels.travel.arrive_date, "DD/MM/YYYY")
-      let now = moment((new Date()).toLocaleDateString() , "DD/MM/YYYY")
+      let now = moment( (new Date() ).toLocaleDateString( ) , "DD/MM/YYYY")
       return [departureDate <= arriveDate || 'Não é possivel que a data de chegada seja antes da partida',
               !now.isAfter(arriveDate)|| "A data de chegada não pode ser antes de hoje"]
     }
   },
   methods: {
-    removeWaypoint(waypoint){
-      this.$store.state.travels.travel.waypoints.pop(waypoint)
+    removeWaypoint( waypoint ){
+      this.$store.state.travels.travel.waypoints.pop( waypoint )
     },
-    closeDialog(){
+    closeDialog( ){
       this.dialog=false;
     }
   },

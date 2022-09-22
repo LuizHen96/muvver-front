@@ -3,13 +3,12 @@
 
     <div class="header">
       <v-toolbar color="transparent">
-        <v-btn icon v-if="state == 1" @click="backHome()">
+        <v-btn icon v-if="state == 1" @click="backHome( )">
           <v-icon>mdi-close</v-icon>
         </v-btn>
         <v-btn icon v-if="state != 1" @click="state--">
           <v-icon>mdi-arrow-left</v-icon>
         </v-btn>
-        
         <v-spacer/>
         <v-toolbar-title>Viajante</v-toolbar-title>
         <v-spacer/>
@@ -17,14 +16,13 @@
           Cancelar
         </v-btn>
       </v-toolbar>
-      <h2>{{label[state-1]}}</h2>
+      <h2>{{label[ state-1 ]}}</h2>
     </div>
     <RadioVehicle v-on:onNextPage="state++" v-show="state == 1"/>
     <TripPath v-on:onNextPage="state++" v-show="state== 2"/>
     <RadioVolume v-on:onNextPage="state++" v-show="state==3"/>
     <RadioWeight v-on:onNextPage="state++" v-show="state==4"/>
-    <DeliveryPrice v-on:onNextPage="createTravel()" v-show="state==5"/>
-
+    <DeliveryPrice v-on:onNextPage="createTravel( )" v-show="state==5"/>
   </div>
 </template>
 
@@ -51,13 +49,13 @@ export default {
         };
     },
     methods: {
-      ...mapActions(['addTravel']),
-      createTravel(){
-        this.addTravel();
-        this.$router.push({name: 'criado'})
+      ...mapActions( [ 'addTravel' ] ),
+      createTravel( ){
+        this.addTravel( );
+        this.$router.push( { name: 'criado' } )
       },
-      backHome(){
-        this.$router.push({name: 'home'})
+      backHome( ){
+        this.$router.push( { name: 'home' } )
       }
     },
     components: { RadioVehicle, TripPath, RadioVolume, RadioWeight, DeliveryPrice }
@@ -65,22 +63,15 @@ export default {
 </script>
 
 <style scoped>
-
   .main{
     display: flex;
     flex-direction: column;
     gap: 20px;
     margin: 50px;
   }
-
   .header{
     background: transparent linear-gradient(249deg, #353740 0%, #222222 100%) 0% 0% no-repeat padding-box;
     color: #ffffff;
     font-family: "Titillium";
-
   }
-
-  
-
-
 </style>

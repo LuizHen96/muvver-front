@@ -18,8 +18,7 @@
           :max="300"
           :step="1"
           class="align-center"
-        />
-          
+        /> 
         </v-col>
       </v-row>
       <v-row>
@@ -39,7 +38,7 @@
       </v-row>
       <v-row>
         <v-col>
-          <v-btn color="success" @click="nextPage()">Avançar</v-btn>
+          <v-btn color="success" @click="nextPage( )">Avançar</v-btn>
         </v-col>
       </v-row>
     </v-container>
@@ -50,20 +49,20 @@
 <script>
 export default {
   name: "DeliveryPrice.vue",
-  data() {
+  data( ) {
     return {
       minimumPrice: 100,
     }
   },
   computed: {
-    minimumPriceFormat(){
+    minimumPriceFormat( ){
       return "R$ " + this.minimumPrice + ",00" 
     }
   },
   methods: {
-    nextPage(){
+    nextPage( ){
       this.$store.state.travels.travel.minimum_price = this.minimumPrice;
-      this.$emit('onNextPage')
+      this.$emit( 'onNextPage' )
     }
   },
 
