@@ -23,7 +23,7 @@ export default {
     directionsService.route( {
       origin:  this.$store.state.travels.travel.origin,
       destination: this.$store.state.travels.travel.destination,
-      waypoints: this.$store.state.travels.travel.waypoints,
+      waypoints: this.waypoints,
       travelMode: window.google.maps.TravelMode.DRIVING
     })
     .then((response) => {
@@ -31,6 +31,16 @@ export default {
     })
     .catch((e) => window.alert("Directions request failed due to " + e.status));
   },
+  computed: {
+    waypoints(){
+      let waypoints = this.$store.state.travels.travel.waypoints;
+      let locationWaypoints = []
+      for(var i=0, len = waypoints.length; i< len; i++){
+        locationWaypoints[i] = {location: waypoints[i]}
+      }
+      return locationWaypoints;
+    }
+  }
 }
 </script>
 

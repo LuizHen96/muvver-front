@@ -19,7 +19,7 @@ const state = {
 
 const getters = {
   getTravels: (state) => state.travels,
-
+  getCurrentTravel: (state) => state.travel
 };
 
 const actions = {
@@ -27,11 +27,9 @@ const actions = {
     const response = await axios.get(api_url);
     commit('setTravels', response.data);
   },
-  async addTravel( ){
-    const response = await axios.post(api_url, state.travel);
-    console.log(response.data)
+  async addTravel(){
+    await axios.post(api_url, state.travel);
   }
-
 };
 
 const mutations = {

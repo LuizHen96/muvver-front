@@ -31,13 +31,13 @@
           <v-icon>mdi-map-marker</v-icon>
         </v-col>
         <v-col>
-          {{waypoint.location}}
+          {{waypoint}}
         </v-col>
         <v-col>
           <v-btn flat icon="mdi-close" @click="removeWaypoint(waypoint)"/>
         </v-col>
       </v-row>
-    <v-dialog v-model="dialog">
+    <v-dialog v-model="dialog" fullscreen>
       <template v-slot:activator="{ props }">
         <v-btn hide-details v-bind="props" block>
           <v-row>
