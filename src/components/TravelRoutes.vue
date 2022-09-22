@@ -1,55 +1,58 @@
 <template>
   <div>
-    <span> Selecione a data e rota da sua viagem</span>
     <v-container>
-
-        <v-row>
-          <v-col>
-            <Datepicker v-if="showPickerDeparture" :inline="true" v-model="$store.state.travels.travel.departure_date" modelType="dd/MM/yyyy" format="dd/MM/yyyy" :enableTimePicker="false" />
-            <v-text-field v-model="$store.state.travels.travel.departure_date" @focus="showPickerDeparture=true" @blur="showPickerDeparture=false" :rules="dateRules" label="Data de Partida" variant="outlined" readonly/>
-          </v-col>
-          <v-col>
-            <Datepicker v-if="showPickerArrive" :inline="true" v-model="$store.state.travels.travel.arrive_date" modelType="dd/MM/yyyy" format="dd/MM/yyyy" :enableTimePicker="false" />
-            <v-text-field v-model="$store.state.travels.travel.arrive_date" @focus="showPickerArrive=true" @blur="showPickerArrive=false" :rules="dateRulesArrive" label="Data de Chegada" variant="outlined" readonly/>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <v-text-field id="origin" v-model="$store.state.travels.travel.origin" label="Cidade de Origem" :rules="cityRules" variant="outlined"/>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <v-text-field id="destination" v-model="$store.state.travels.travel.destination" label="Cidade de Destino" :rules="cityRules" variant="outlined"/>
-          </v-col>
-        </v-row>
-        <v-row v-for="(waypoint, key) in $store.state.travels.travel.waypoints" :key="key">
-          <v-col>
-            <v-icon>mdi-map-marker</v-icon>
-          </v-col>
-          <v-col>
-            {{waypoint.location}}
-          </v-col>
-          <v-col>
-            <v-btn flat icon="mdi-close" @click="removeWaypoint(waypoint)"/>
-          </v-col>
-        </v-row>
-      <v-dialog v-model="dialog">
-        <template v-slot:activator="{ props }">
-          <v-btn hide-details v-bind="props">
-            <v-row>
-              <v-col> 
-                <v-img src="@/assets/images/add_button.svg" class="icon" alt="Icone de uma adição" width="50px"/>
-              </v-col>
-              <v-col>
-                <h3>Adicionar ponto intermediário</h3>
-                <h4>E aumente sua chance de math</h4>
-              </v-col>
-            </v-row>
-        </v-btn>
-        </template>
-        <TravelWaypoint v-on:onCloseDialog="closeDialog()"/>
-      </v-dialog>
+      <v-row>
+        <v-col>
+          <span> Selecione a data e rota da sua viagem</span>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <Datepicker v-if="showPickerDeparture" :inline="true" v-model="$store.state.travels.travel.departure_date" modelType="dd/MM/yyyy" format="dd/MM/yyyy" :enableTimePicker="false" />
+          <v-text-field v-model="$store.state.travels.travel.departure_date" @focus="showPickerDeparture=true" @blur="showPickerDeparture=false" :rules="dateRules" label="Data de Partida" variant="outlined" readonly/>
+        </v-col>
+        <v-col>
+          <Datepicker v-if="showPickerArrive" :inline="true" v-model="$store.state.travels.travel.arrive_date" modelType="dd/MM/yyyy" format="dd/MM/yyyy" :enableTimePicker="false" />
+          <v-text-field v-model="$store.state.travels.travel.arrive_date" @focus="showPickerArrive=true" @blur="showPickerArrive=false" :rules="dateRulesArrive" label="Data de Chegada" variant="outlined" readonly/>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-text-field id="origin" v-model="$store.state.travels.travel.origin" label="Cidade de Origem" :rules="cityRules" variant="outlined"/>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-text-field id="destination" v-model="$store.state.travels.travel.destination" label="Cidade de Destino" :rules="cityRules" variant="outlined"/>
+        </v-col>
+      </v-row>
+      <v-row v-for="(waypoint, key) in $store.state.travels.travel.waypoints" :key="key">
+        <v-col>
+          <v-icon>mdi-map-marker</v-icon>
+        </v-col>
+        <v-col>
+          {{waypoint.location}}
+        </v-col>
+        <v-col>
+          <v-btn flat icon="mdi-close" @click="removeWaypoint(waypoint)"/>
+        </v-col>
+      </v-row>
+    <v-dialog v-model="dialog">
+      <template v-slot:activator="{ props }">
+        <v-btn hide-details v-bind="props" block>
+          <v-row>
+            <v-col> 
+              <v-img src="@/assets/images/add_button.svg" class="icon" alt="Icone de uma adição" width="50px"/>
+            </v-col>
+            <v-col>
+              <h3>Adicionar ponto intermediário</h3>
+              <h4>E aumente sua chance de math</h4>
+            </v-col>
+          </v-row>
+      </v-btn>
+      </template>
+      <TravelWaypoint v-on:onCloseDialog="closeDialog()"/>
+    </v-dialog>
     </v-container>
   </div>
 </template>

@@ -1,83 +1,110 @@
 <template>
-  <div class="main">   
+  <div class="main">
+    <v-container>
     <h3>Transporte</h3>
     <v-radio-group v-model="radioTransport">
-      <v-container>
         <v-row>
-          <v-col class="radio-option">
+          <v-col>
             <v-img src="@/assets/images/transport/ic_car.svg" class="icon" alt="Icone de um Carro"/>
+          </v-col>
+          <v-col>
             <span>Carro</span>
-            <v-spacer/>
-            <v-radio value="car"/>
+          </v-col>
+          <v-col>
+            <v-radio value="Carro"/>
           </v-col>
         </v-row>
         <v-row>
-          <v-col class="radio-option">
+          <v-col>
             <v-img src="@/assets/images/transport/ic_aviao.svg" class="icon" alt="Icone de um Avião"/>
+          </v-col>
+          <v-col>
             <span>Avião</span>
-            <v-spacer/>
-            <v-radio value="aviao"/>
+          </v-col>
+          <v-col>
+            <v-radio value="Avião"/>
           </v-col>
         </v-row>
         <v-row>
-          <v-col class="radio-option">
+          <v-col>
             <v-img src="@/assets/images/transport/ic_caminhao.svg" class="icon" alt="Icone de um Caminhão"/>
+          </v-col>
+          <v-col>
             <span>Caminhão</span>
-            <v-spacer/>
-            <v-radio value="caminhao"/>
+          </v-col>
+          <v-col>
+            <v-radio value="Caminhão"/>
           </v-col>
         </v-row>
         <v-row>
-          <v-col class="radio-option">
+          <v-col>
             <v-img src="@/assets/images/transport/ic_van.svg" class="icon" alt="Icone de uma Van"/>
+          </v-col>
+          <v-col>
             <span>Van</span>
-            <v-spacer/>
-            <v-radio value="van"/>
+          </v-col>
+          <v-col>
+            <v-radio value="Van"/>
           </v-col>
         </v-row>
         <v-row>
-          <v-col class="radio-option">
+          <v-col>
             <v-img src="@/assets/images/transport/ic_moto.svg" class="icon" alt="Icone de uma Moto"/>
+          </v-col>
+          <v-col>
             <span>Moto</span>
-            <v-spacer/>
-            <v-radio value="moto"/>
+          </v-col>
+          <v-col>
+            <v-radio value="Moto"/>
           </v-col>
         </v-row>
         <v-row>
-          <v-col class="radio-option">
+          <v-col>
             <v-img src="@/assets/images/transport/ic_bike.svg" class="icon" alt="Icone de uma Bicicleta"/>
+          </v-col>
+          <v-col>
             <span>Bicicleta</span>
-            <v-spacer/>
-            <v-radio value="bike"/>
+          </v-col>
+          <v-col>
+            <v-radio value="Bicicleta"/>
           </v-col>
         </v-row>
         <v-row>
-          <v-col class="radio-option">
+          <v-col>
             <v-img src="@/assets/images/transport/ic_trem.svg" class="icon" alt="Icone de um Trem"/>
+          </v-col>
+          <v-col>
             <span>Trem</span>
-            <v-spacer/>
-            <v-radio value="trem"/>
+          </v-col>
+          <v-col>
+            <v-radio value="Trem"/>
           </v-col>
         </v-row>
         <v-row>
-          <v-col class="radio-option">
+          <v-col>
             <v-img src="@/assets/images/transport/ic_bus.svg" class="icon" alt="Icone de um Ônibus"/>
+          </v-col>
+          <v-col>
             <span>Ônibus</span>
-            <v-spacer/>
-            <v-radio value="bus"/>
+          </v-col>
+          <v-col>
+            <v-radio value="Ônibus"/>
           </v-col>
         </v-row>
         <v-row>
-          <v-col class="radio-option">
+          <v-col>
             <v-img src="@/assets/images/transport/ic_barco.svg" class="icon" alt="Icone de um Barco"/>
+          </v-col>
+          <v-col>
             <span>Embarcação</span>
-            <v-spacer/>
-            <v-radio value="barco"/>
+          </v-col>
+          <v-col>
+            <v-radio value="Barco"/>
           </v-col>
         </v-row>
-      </v-container>
     </v-radio-group>
     <v-btn color="success" @click="nextPage()">Avançar</v-btn>
+    </v-container>
   </div>
 </template>
 
@@ -86,7 +113,7 @@ export default {
   name: 'RadioVehicle',
   data() {
     return {
-      radioTransport: "car",
+      radioTransport: "Carro",
     }
   },
   methods: {
@@ -101,10 +128,7 @@ export default {
 </script>
 
 <style scoped>
-  .radio-option{
-    display: flex;
-    justify-content: space-between;
-  }
+
   .icon{
     height: 50px;
     width: 50px;

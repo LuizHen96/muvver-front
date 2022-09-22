@@ -1,21 +1,49 @@
 <template>
   <div>
-    <h3>Preço da entrega</h3>
-    <span>Valor Sugerido</span>
-    <v-slider
-      v-model="minimumPrice"
-      :max="300"
-      :step="1"
-      class="align-center"
-    />
-    <v-text-field
+    <v-container>
+      <v-row>
+        <v-col>
+          <h3>Preço da entrega</h3>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <span>Valor Sugerido</span>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-slider
+          v-model="minimumPrice"
+          :max="300"
+          :step="1"
+          class="align-center"
+        />
+          
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-text-field
           v-model="minimumPrice"
           type="number"
           :label="minimumPriceFormat"
           style="width: 100px"
-    />
-    <span>Clique no valor acima, para um preço mais específico</span>
-    <v-btn color="success" @click="nextPage()">Avançar</v-btn>
+          />
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <span>Clique no valor acima, para um preço mais específico</span>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-btn color="success" @click="nextPage()">Avançar</v-btn>
+        </v-col>
+      </v-row>
+    </v-container>
+    
   </div>
 </template>
 

@@ -1,13 +1,28 @@
 <template>
   <div>
-    <v-btn @click="state=1"> Rotas </v-btn>
-    <v-btn @click="state=2"> Mapa </v-btn>
-    <TravelRoutes v-if="state==1"/>
-    <TravelMap v-if="state==2"/>
-    <v-btn :disabled="!validInput" color="success" @click="nextPage()">Avançar</v-btn>
+    <v-container>
+      <v-row>
+        <v-col cols="6">
+          <v-btn @click="state=1" class="btn" flat block> Rotas </v-btn>
+        </v-col>
+        <v-col cols="6">
+          <v-btn @click="state=2" block flat> Mapa </v-btn>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+        <TravelRoutes v-if="state==1"/>
+        <TravelMap v-if="state==2"/>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <v-btn :disabled="!validInput" color="success" @click="nextPage()">Avançar</v-btn>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
-
 <script>
 import TravelRoutes from './TravelRoutes.vue';
 import TravelMap from './TravelMap.vue';
@@ -40,3 +55,6 @@ export default {
     components: { TravelRoutes, TravelMap }
 }
 </script>
+
+<style scoped>
+</style>

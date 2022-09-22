@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div id="map"></div>
+    <v-row>
+      <v-col>
+        <div id="map"></div>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -34,8 +38,8 @@ export default {
 
 <style scoped>
  #map{
-  position:block;
-  width: 800px;
-  height: 800px;
+
+  width: 65vw;
+  height: 80vh;
  }
 </style>

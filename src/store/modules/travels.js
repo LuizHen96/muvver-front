@@ -12,18 +12,20 @@ const state = {
     transport_volume: "",
     transport_weight: "",
     minimum_price: 0,
-  }
+  },
+  travels: []
 
 };
 
 const getters = {
+  getTravels: (state) => state.travels,
 
 };
 
 const actions = {
-  async fetchTravel({ commit }) {
+  async fetchTravels({ commit }) {
     const response = await axios.get(api_url);
-    commit('setTravel', response.data);
+    commit('setTravels', response.data);
   },
   async addTravel(){
     const response = await axios.post(api_url, state.travel);
@@ -33,8 +35,7 @@ const actions = {
 };
 
 const mutations = {
-  setTravel: (state, travel) => (state.travel = travel)
-
+  setTravels: (state, travels) => (state.travels = travels)
 };
 
 export default {
